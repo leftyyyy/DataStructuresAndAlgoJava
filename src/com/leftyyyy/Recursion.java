@@ -83,12 +83,6 @@ public class Recursion {
 
         System.out.println(sumArr(arr, 0));
 
-        /*
-
-        int[] array = Arrays.stream(reader.readLine().split("\\s")).mapToInt(Integer::parseInt).toArray();
-        */
-
     }
-
 
 }
