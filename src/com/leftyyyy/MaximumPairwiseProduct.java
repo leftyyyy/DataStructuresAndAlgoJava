@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.*;
 
+
+//given a array of n numbers (n can be very large), find maximum product of a pair.
 public class MaximumPairwiseProduct {
     public static BigInteger MaxProdArr(int[] arr){
         Map<String, BigInteger> map = getMaxSecondMax(arr);
@@ -13,11 +15,15 @@ public class MaximumPairwiseProduct {
         BigInteger secMax = map.get("max2");
         return max.multiply(secMax);
     }
+
+    //returns max1 -- maximum of array and max2 -- secondMaximum of array in a single pass
+    //stores the result in Map.
     private static Map<String,BigInteger> getMaxSecondMax(int[] intArr){
         Map<String, BigInteger> map = new HashMap<>();
         int max1 = 0;
         int max2= 0;
         for( int i =0;i<intArr.length;i++){
+            //algorithm to get max and secMax in a single pass
             if(intArr[i] > max1){
                 max2 = max1;
                 max1 = intArr[i];
