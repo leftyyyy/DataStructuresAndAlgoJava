@@ -20,5 +20,6 @@ public class FindLCM {
         BigInteger a = new BigInteger(String.valueOf(scanner.nextBigInteger()));
         BigInteger b = new BigInteger(String.valueOf(scanner.nextBigInteger()));
         System.out.println(getLcm(a, b));
+        
     }
 }
