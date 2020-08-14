@@ -118,8 +118,21 @@ public class MyCustomTree {
             System.out.println(root.getData());
             return root;
         }
-        Node leftTree = nodeAtDeptK(root.getLeft(), k-1);
-        Node rightTree = nodeAtDeptK(root.getRight(), k-1);
+        nodeAtDeptK(root.getLeft(), k-1);
+        nodeAtDeptK(root.getRight(), k-1);
+        return null;
+    }
+    //all nodes at dept k version 2 [initial dept should be 0]
+    public static Node nodeAtDeptKV2(Node root, int k, int dept){
+        if(root == null){
+            return null;
+        }
+        if(k==dept){
+            System.out.println(root.getData());
+            return root;
+        }
+        nodeAtDeptKV2(root.getLeft(), k, dept+1);
+        nodeAtDeptKV2(root.getRight(), k, dept+1);
         return null;
     }
 
@@ -142,5 +155,7 @@ public class MyCustomTree {
         System.out.println("number of leaf nodes are: " + leafNode(root));
         System.out.println("node at dept K are ---> ");
         nodeAtDeptK(root, 1);
+        System.out.println("using version 2: --->");
+        nodeAtDeptKV2(root, 1, 0);
     }
 }
