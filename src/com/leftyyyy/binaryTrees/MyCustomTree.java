@@ -149,6 +149,18 @@ public class MyCustomTree {
         return root;
     }
 
+    public static Boolean isBalanced(Node root){
+        if(root == null){
+            return Boolean.TRUE;
+        }
+        int leftHeight = heightOfTree(root.getLeft());
+        int rightHeight = heightOfTree(root.getRight());
+        if(leftHeight - rightHeight == 0 || leftHeight - rightHeight == 1 || leftHeight - rightHeight == -1){
+            return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
+    }
+
     public static void main(String[] args) {
         Node root = treeInput();
         System.out.println("Number of nodes are: " + numNodes(root));
@@ -173,5 +185,9 @@ public class MyCustomTree {
 
         System.out.println("Tree after removing leaf nodes");
         printTreePreOrder(removeLeafNodes(root));
+
+        printTreePreOrder(root);
+        System.out.println("isBalanced");
+        System.out.println(isBalanced(root));
     }
 }
