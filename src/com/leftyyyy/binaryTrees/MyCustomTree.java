@@ -136,6 +136,19 @@ public class MyCustomTree {
         return null;
     }
 
+    public static Node removeLeafNodes(Node root){
+        if(root == null){
+            return null;
+        }
+        //if root is leaf
+        if(root.getLeft()==null && root.getRight()==null){
+            return null;
+        }
+        root.setLeft(removeLeafNodes(root.getLeft()));
+        root.setRight(removeLeafNodes(root.getRight()));
+        return root;
+    }
+
     public static void main(String[] args) {
         Node root = treeInput();
         System.out.println("Number of nodes are: " + numNodes(root));
@@ -157,5 +170,8 @@ public class MyCustomTree {
         nodeAtDeptK(root, 1);
         System.out.println("using version 2: --->");
         nodeAtDeptKV2(root, 1, 0);
+
+        System.out.println("Tree after removing leaf nodes");
+        printTreePreOrder(removeLeafNodes(root));
     }
 }
