@@ -163,6 +163,7 @@ public class MyCustomTree {
 
     public static void main(String[] args) {
         Node root = treeInput();
+        /*
         System.out.println("Number of nodes are: " + numNodes(root));
         System.out.println("preOrder : Root-Left-Right");
         printTreePreOrder(root);
@@ -188,6 +189,9 @@ public class MyCustomTree {
 
         printTreePreOrder(root);
         System.out.println("isBalanced");
+        System.out.println(isBalanced(root));
+         */
+        printTreePreOrder(root);
         System.out.println(isBalanced(root));
     }
 }
