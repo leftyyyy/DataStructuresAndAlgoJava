@@ -155,10 +155,16 @@ public class MyCustomTree {
         }
         int leftHeight = heightOfTree(root.getLeft());
         int rightHeight = heightOfTree(root.getRight());
-        if(leftHeight - rightHeight == 0 || leftHeight - rightHeight == 1 || leftHeight - rightHeight == -1){
-            return Boolean.TRUE;
+        if(leftHeight - rightHeight > 1 || rightHeight - leftHeight > 1){
+            return Boolean.FALSE;
         }
-        return Boolean.FALSE;
+        Boolean isLeftBalanced = isBalanced(root.getLeft());
+        Boolean isRightBalanced = isBalanced(root.getRight());
+        if(isLeftBalanced && isRightBalanced){
+            return Boolean.TRUE;
+        }else {
+            return Boolean.FALSE;
+        }
     }
 
     public static void main(String[] args) {
