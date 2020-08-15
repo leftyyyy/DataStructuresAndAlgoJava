@@ -231,30 +231,3 @@ public class MyCustomTree {
         System.out.println(res.getValue());
     }
 }
-        /*
-        1
-        2
-        8
-        10
-        12
-        -1
-        -1
-        -1
-        11
-        -1
-        -1
-        9
-        -1
-        -1
-        3
-        4
-        5
-        -1
-        -1
-        6
-        -1
-        7
-        -1
-        -1
-        -1
-        */
