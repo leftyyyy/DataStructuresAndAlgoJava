@@ -1,5 +1,6 @@
 package com.leftyyyy.binaryTrees;
-import java.util.ArrayList;
+import javafx.util.Pair;
+
 import java.util.Scanner;
 public class MyCustomTree {
 
@@ -167,6 +168,33 @@ public class MyCustomTree {
         }
     }
 
+    public static Pair<Boolean, Integer> getHeightAndCheckBalance(Node root){
+        if(root == null){
+            Pair<Boolean,Integer> pair = new Pair(Boolean.TRUE, 0);
+            return pair;
+        }
+        Pair leftRec = getHeightAndCheckBalance(root.getLeft());
+        Pair rightRec = getHeightAndCheckBalance(root.getRight());
+        Integer lh, rh, h;
+        lh = (Integer) leftRec.getValue();
+        rh = (Integer) rightRec.getValue();
+        if(lh>=rh){
+            h = 1 + lh;
+        }else{
+            h = 1 + rh;
+        }
+        if(lh-rh>1 || rh-lh>1){
+            Pair<Boolean,Integer> pair = new Pair(Boolean.FALSE, h);
+            return pair;
+        }
+        if((Boolean) leftRec.getKey() && (Boolean) rightRec.getKey()){
+            Pair<Boolean,Integer> pair = new Pair(Boolean.TRUE, h);
+            return pair;
+        }
+        Pair<Boolean,Integer> pair = new Pair(Boolean.FALSE, h);
+        return pair;
+    }
+
     public static void main(String[] args) {
         Node root = treeInput();
         /*
@@ -198,6 +226,35 @@ public class MyCustomTree {
         System.out.println(isBalanced(root));
          */
         printTreePreOrder(root);
-        System.out.println(isBalanced(root));
+        Pair res = getHeightAndCheckBalance(root);
+        System.out.println(res.getKey());
+        System.out.println(res.getValue());
     }
 }
+        /*
+        1
+        2
+        8
+        10
+        12
+        -1
+        -1
+        -1
+        11
+        -1
+        -1
+        9
+        -1
+        -1
+        3
+        4
+        5
+        -1
+        -1
+        6
+        -1
+        7
+        -1
+        -1
+        -1
+        */
