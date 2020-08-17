@@ -195,6 +195,27 @@ public class MyCustomTree {
         return pair;
     }
 
+    public static int diameterOfTree(Node root){
+        if(root == null){
+            return 0;
+        }
+        int leftHeight = heightOfTree(root.getLeft());
+        int rightHeight =  heightOfTree(root.getRight());
+
+        int heightSum = leftHeight + rightHeight;
+
+        int leftDia = diameterOfTree(root.getLeft());
+        int rightDia = diameterOfTree(root.getRight());
+
+        if(heightSum >= leftDia && heightSum >= rightDia){
+            return heightSum;
+        }else if(heightSum >= leftDia){
+            return rightDia;
+        }else{
+            return leftDia;
+        }
+    }
+
     public static void main(String[] args) {
         Node root = treeInput();
         /*
@@ -229,5 +250,7 @@ public class MyCustomTree {
         Pair res = getHeightAndCheckBalance(root);
         System.out.println(res.getKey());
         System.out.println(res.getValue());
+
+        System.out.println(diameterOfTree(root));
     }
 }
