@@ -2,12 +2,12 @@ package com.leftyyyy.queue;
 
 import java.util.ArrayList;
 
-public class Queues {
+public class QueueUsingArrayList {
     //enqueue, dequeue, isEmpty, front, size
     private ArrayList<Character> arr;
     private int count;
     private int front;
-    Queues(){
+    QueueUsingArrayList(){
         arr = new ArrayList<Character>();
         count = 0;
         front = 0;

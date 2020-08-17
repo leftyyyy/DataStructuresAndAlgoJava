@@ -2,7 +2,7 @@ package com.leftyyyy.queue;
 
 public class QueueFactory {
     public static void main(String[] args) {
-        Queues q = new Queues();
+        QueueUsingArrayList q = new QueueUsingArrayList();
         q.enqueue('a');
         q.enqueue('b');
         q.enqueue('c');
@@ -13,5 +13,20 @@ public class QueueFactory {
             q.dequeue();
         }
         System.out.println(q.dequeue());
+
+
+        System.out.println("queue using LL");
+        QueueUsingLinkedList q_new = new QueueUsingLinkedList();
+        q_new.enqueue('r');
+        q_new.enqueue('i');
+        q_new.enqueue('s');
+        q_new.enqueue('h');
+        q_new.enqueue('i');
+
+        while(!q_new.isEmpty()){
+            System.out.println(q_new.front());
+            q_new.dequeue();
+        }
+        System.out.println(q_new.dequeue());
     }
 }
