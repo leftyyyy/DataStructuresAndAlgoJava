@@ -1,6 +1,5 @@
 package com.leftyyyy.huffman;
 
-import java.nio.ByteBuffer;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
@@ -79,6 +78,7 @@ public class HuffmanCoding {
         BinaryTreeNode root = minPQ.poll();
         getCodeHelper(root, "");
 
+        printTreePreOrder(root);
     }
 
     //encoding
@@ -91,10 +91,27 @@ public class HuffmanCoding {
         return encodedText;
     }
 
+    public static BinaryTreeNode printTreePreOrder(BinaryTreeNode root){
+        if(root == null){
+            return null;
+        }
+        System.out.print(root.getData());
+        if(root.getLeft()!=null){
+            System.out.print(" : L->" + root.getLeft().getData());
+        }
+        if(root.getRight()!=null){
+            System.out.print(" , R->" + root.getRight().getData());
+        }
+        System.out.println();
+        printTreePreOrder(root.getLeft());
+        printTreePreOrder(root.getRight());
+        return null;
+    }
+
 
     public static void compress(){
         //code for get path
-        String text = "aaaaab";
+        String text = "abcc";
 
         HuffmanCoding h = new HuffmanCoding(text);
 
