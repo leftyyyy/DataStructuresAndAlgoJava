@@ -2,7 +2,7 @@ package com.dailyInterviewProblems;
 
 import java.util.Scanner;
 
-public class Solution {
+public class SolutionSkillenzaMario {
     private static int IncreasingLength(int[] arr, int n){
         int max = 1, len = 1;
         for (int i=1; i<n; i++){
