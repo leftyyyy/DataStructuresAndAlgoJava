@@ -1,10 +1,10 @@
 package com.dailyInterviewProblems;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-public class SolutionHackerearth {
+public class NewSolutionForHackerearthListReduce {
 
     static class Pair {
         int min;
@@ -47,11 +47,14 @@ public class SolutionHackerearth {
         }
         return minmax;
     }
-    private static BigInteger listReduce(ArrayList<Integer> arr, int n, int k){
+
+    private static long listReduce(ArrayList<Integer> arr, int n, int k){
         for(int i=1;i<=k;i++){
-            BigInteger iniSumTmp = BigInteger.valueOf(0);
+            long iniSumTmp = 0;
+            //BigInteger iniSumTmp = BigInteger.valueOf(0);
             for (int item:arr){
-                iniSumTmp = iniSumTmp.add(BigInteger.valueOf(item));
+                iniSumTmp = iniSumTmp + item;
+                //iniSumTmp = iniSumTmp.add(BigInteger.valueOf(item));
             }
 
             Pair mmx = getMinMax(arr, n);
@@ -67,19 +70,26 @@ public class SolutionHackerearth {
             arr.remove(new Integer(mmx.min));
             arr.add(s*2);
 
+            long res_tmp = 0;
+            for (int item:arr){
+                res_tmp = res_tmp + item;
+            }
+            /*
             BigInteger res_tmp = BigInteger.valueOf(0);
             for (int item:arr){
                 res_tmp = res_tmp.add(BigInteger.valueOf(item));
             }
 
-            if(iniSumTmp.compareTo(res_tmp)==-1){
+             */
+
+            if(iniSumTmp<res_tmp){
                 return iniSumTmp;
             }
         }
 
-        BigInteger res = BigInteger.valueOf(0);
+        long res = 0;
         for (int item:arr){
-            res = res.add(BigInteger.valueOf(item));
+            res = res + item;
         }
         return res;
     }
