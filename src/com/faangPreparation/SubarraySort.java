@@ -120,6 +120,26 @@ public class SubarraySort {
         }
     }
 
+    private static int findUnsortedSubarraySolution2(int[] nums){
+        int len = nums.length;
+        int max = nums[0];
+        int min = nums[len - 1];
+        int start = -1;
+        int end = -1;
+        for (int i = 0; i < len; i++) {
+            max = Math.max(nums[i], max);
+            min = Math.min(nums[len - i - 1], min);
+            if (nums[i] < max) {
+                end = i;
+            }
+            if (nums[len - i - 1] > min) {
+                start = len - i - 1;
+            }
+        }
+        if (start == end) return 0;
+        return end  - start + 1;
+    }
+
     public static void main(String[] args) {
         int[] input = {-1,0,3,2,4};
         int output = findUnsortedSubarray(input);
