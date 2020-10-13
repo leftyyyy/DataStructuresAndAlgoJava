@@ -15,7 +15,21 @@ Minimize the total number of operations.
  */
 public class MovingElementToEnd {
     //when order doesn't matter
+    //alogexpert way
     private static int[] moveToEndNotMaintainingOrder(int[] arr, int element){
+        int i=0;
+        int j=arr.length-1;
+        while(i<j){
+            while(i<j && arr[j]==element){
+                j=j-1;
+            }
+            if(arr[i]==element){
+                int tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+            i=i+1;
+        }
         return arr;
     }
 
@@ -51,8 +65,13 @@ public class MovingElementToEnd {
         int[] input = {0,1,0,3,12};
         int element = 0;
         int[] res = moveToEndMaintainingOrder(input, element);
+        int[] res2 = moveToEndNotMaintainingOrder(input, element);
         for(int i=0; i<res.length; i++){
             System.out.print(res[i]+" ");
+        }
+        System.out.println();
+        for(int i=0; i<res2.length; i++){
+            System.out.print(res2[i]+" ");
         }
     }
 }
