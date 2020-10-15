@@ -1,4 +1,4 @@
-package com.faangPreparation.Arrays;
+package com.faangPreparation.dynamicProgramming;
 /*
 You are a professional robber planning to rob houses along a street.
 Each house has a certain amount of money stashed,
@@ -29,6 +29,28 @@ Constraints:
  */
 public class HouseRobber {
     private static int solution(int[] nums){
-        return 0;
+        if(nums.length==1){
+            return nums[0];
+        }
+        if(nums.length==0){
+            return 0;
+        }
+        int first = nums[0];
+        int second = Math.max(nums[0], nums[1]);
+        int i=2;
+        int m=Math.max(first, second);
+        while(i<nums.length){
+            m = Math.max(second, first + nums[i]);
+            first = second;
+            second = m;
+            i=i+1;
+        }
+        return m;
+    }
+
+    public static void main(String[] args) {
+        int[] input = {2,7,9,3,1};
+        int out = solution(input);
+        System.out.println(out);
     }
 }
