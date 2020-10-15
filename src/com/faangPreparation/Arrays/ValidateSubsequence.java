@@ -1,4 +1,4 @@
-package com.faangPreparation;
+package com.faangPreparation.Arrays;
 /*
 validate if a subsequence is present in array or not
 

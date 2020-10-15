@@ -1,4 +1,4 @@
-package com.faangPreparation;
+package com.faangPreparation.Arrays;
 
 import java.util.*;
 import java.util.stream.Collectors;

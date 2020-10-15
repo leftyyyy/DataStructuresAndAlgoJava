@@ -1,4 +1,4 @@
-package com.faangPreparation;
+package com.faangPreparation.Arrays;
 /*
 An array is monotonic if it is either monotone increasing or monotone decreasing.
 

@@ -1,4 +1,4 @@
-package com.faangPreparation;
+package com.faangPreparation.Arrays;
 
 /*
 Given an integer array nums,

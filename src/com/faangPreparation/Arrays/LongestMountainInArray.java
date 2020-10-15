@@ -1,4 +1,4 @@
-package com.faangPreparation;
+package com.faangPreparation.Arrays;
 /*
 Let's call any (contiguous) subarray B (of A) a mountain if the following properties hold:
     -> B.length >= 3
@@ -30,6 +30,7 @@ Follow up:
     *-> Can you solve it in O(1) space?
  */
 public class LongestMountainInArray {
+    //singlePass solution
     private static int longestPeak(int[] A){
         if(A.length<3){
             return 0;
@@ -85,6 +86,7 @@ public class LongestMountainInArray {
         return length;
     }
 
+    //leetCode most voted solution
     private static int longestPeakSolution2(int[] A){
         int res = 0, up = 0, down = 0;
         for (int i = 1; i < A.length; ++i) {

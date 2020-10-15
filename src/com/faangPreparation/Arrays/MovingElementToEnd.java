@@ -1,4 +1,4 @@
-package com.faangPreparation;
+package com.faangPreparation.Arrays;
 /*
 Given an array nums, and a integer
 write a function to move all given integers's to the end of it

@@ -1,4 +1,4 @@
-package com.faangPreparation;
+package com.faangPreparation.Arrays;
 /*
 Let's call an array arr a mountain if the following properties hold:
 
