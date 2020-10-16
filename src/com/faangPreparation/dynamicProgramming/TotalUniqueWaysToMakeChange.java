@@ -43,6 +43,7 @@ public class TotalUniqueWaysToMakeChange {
             }else{
                 int j = coins[i];
                 while(j<ways.length){
+                    //ways[targetAmount]=ways[targetAmount]+ways[targetAmount - coinDenomination]
                     ways[j] = ways[j] + ways[j-coins[i]];
                     j=j+1;
                 }
