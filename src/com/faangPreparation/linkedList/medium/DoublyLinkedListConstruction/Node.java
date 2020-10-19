@@ -1,4 +1,4 @@
-package com.faangPreparation.linkedList.medium.linkedListConstruction;
+package com.faangPreparation.linkedList.medium.DoublyLinkedListConstruction;
 
 public class Node {
     private Node next;

@@ -1,4 +1,4 @@
-package com.faangPreparation.linkedList.medium.linkedListConstruction;
+package com.faangPreparation.linkedList.medium.DoublyLinkedListConstruction;
 
 //construction of a doubly linked list
 //with head and tail
@@ -104,7 +104,7 @@ public class LinkedListConstruction {
         this.removeNodeBindings(node);
     }
 
-    public void removeNodeBindings(Node node){
+    private void removeNodeBindings(Node node){
         if(node.getPrevNode()!=null){
             node.getPrevNode().setNextNode(node.getNextNode());
         }
@@ -121,5 +121,15 @@ public class LinkedListConstruction {
             node = node.getNextNode();
         }
         return node!=null;
+    }
+
+    public void print(){
+        Node head = this.head;
+        System.out.print("None-->");
+        while(head!=null){
+            System.out.print("<--"+head.getValue()+"-->");
+            head = head.getNextNode();
+        }
+        System.out.print("<--None");
     }
 }
