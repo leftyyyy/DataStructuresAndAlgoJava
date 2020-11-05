@@ -1,6 +1,6 @@
 package com.gfgAmazonSDE.arrays;
 
-import javafx.util.Pair;
+import org.apache.commons.lang3.tuple.Pair;
 
 /*
 Max and Second Max
@@ -52,7 +52,7 @@ Testcase 3: From the given array elements, 5 is the largest and -1 is the second
  */
 public class MaxAndSecondMax {
     private static Pair<Integer, Integer> largestAndSecondLargest(int[] arr){
-        Pair<Integer, Integer> p = new Pair<>(-1, -2);
+        Pair<Integer, Integer> p = Pair.of(-1, -2);
         int largest = p.getKey();
         int secondLargest = p.getValue();
 

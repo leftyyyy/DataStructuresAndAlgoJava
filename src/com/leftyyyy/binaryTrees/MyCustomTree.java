@@ -1,10 +1,10 @@
+
 package com.leftyyyy.binaryTrees;
-import javafx.util.Pair;
+
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Scanner;
 public class MyCustomTree {
-
-
     public static Node treeInput(){
         Scanner s = new Scanner(System.in);
         int rootData = s.nextInt();
@@ -170,7 +170,7 @@ public class MyCustomTree {
 
     public static Pair<Boolean, Integer> getHeightAndCheckBalance(Node root){
         if(root == null){
-            Pair<Boolean,Integer> pair = new Pair(Boolean.TRUE, 0);
+            Pair<Boolean, Integer> pair = Pair.of(Boolean.TRUE, 0);
             return pair;
         }
         Pair leftRec = getHeightAndCheckBalance(root.getLeft());
@@ -184,14 +184,14 @@ public class MyCustomTree {
             h = 1 + rh;
         }
         if(lh-rh>1 || rh-lh>1){
-            Pair<Boolean,Integer> pair = new Pair(Boolean.FALSE, h);
+            Pair<Boolean,Integer> pair = Pair.of(Boolean.FALSE, h);
             return pair;
         }
         if((Boolean) leftRec.getKey() && (Boolean) rightRec.getKey()){
-            Pair<Boolean,Integer> pair = new Pair(Boolean.TRUE, h);
+            Pair<Boolean,Integer> pair = Pair.of(Boolean.TRUE, h);
             return pair;
         }
-        Pair<Boolean,Integer> pair = new Pair(Boolean.FALSE, h);
+        Pair<Boolean,Integer> pair = Pair.of(Boolean.FALSE, h);
         return pair;
     }
 
